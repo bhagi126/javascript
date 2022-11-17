@@ -6,9 +6,12 @@
 	<title></title>
 </head>
 <body>
+	<section id="emp" style="display:flex;">
+		
+	</section>
     <script type="text/javascript">
-    	const promiseOBj=new Promise((resolve,reject)=>{
-    		var time=Math.random()
+    	/*const promiseOBj=new Promise((resolve,reject)=>{
+    		var time=Math.random()0
     		console.log(time)
     		if(time<0.6){
     			return resolve("Data is available")
@@ -18,7 +21,29 @@
     	   }
     	})
     	console.log(promiseOBj)
-    	console.log("hello")
+    	console.log("hello")*/
+    	fetch("https://reqres.in/api/users?page=2")
+    	.then((res)=> {
+    		/*console.log(res)*/
+    		return res.json()
+    	})
+    	.then((jsonRes)=>{
+    		console.log(jsonRes.data)
+    		display(jsonRes.data)
+    	})
+    	function display(employees){
+    		var block=document.getElementById("emp")
+    		//block .innerHTML+=employees[0].first_name
+    		for(var i=0;i<employees.length;i++){
+    			block.innerHTML+=`
+    			<div>
+                   <p>${employees[i].first_name}</p>
+                   <img src="${employees[i].avatar}"
+                     width="70%"/>
+    			</div>`
+    			//console.log(employees[i].first_name)
+    		}
+    	}
     </script>
 </body>
 </html>
