@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -22,9 +22,9 @@
     	})
     	console.log(promiseOBj)
     	console.log("hello")*/
-    	fetch("https://reqres.in/api/users?page=2")
+    /*	fetch("https://reqres.in/api/users?page=2")
     	.then((res)=> {
-    		/*console.log(res)*/
+    	/*	/*console.log(res)*/
     		return res.json()
     	})
     	.then((jsonRes)=>{
@@ -45,5 +45,43 @@
     		}
     	}
     </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<div>
+		<input id="username"placeholder="enter name"/>
+		<input id="password"placeholder="enter password"/>
+		<button onclick="heal()">submit</button>
+	</div>
+    <script type="text/javascript">
+    	function heal(){
+    		var username=document.getElementById("username").value,password=document.getElementById("password").value
+    		console.log(username,password)
+		fetch("https://reqres.in/api/users",{
+			method:"POST",
+			headers:{
+				"Content-Type":"application/json"
+			},
+			body:JSON.stringify({name:"bhagi",year:2022})
+		})
+		.then((res)=>{
+			console.log(res)
+			return res.json()
+		})
+		.then((jsonres)=>{
+			console.log(jsonres)
+		})
+	}
+	</script>
+
 </body>
 </html>
